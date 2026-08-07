@@ -1,0 +1,159 @@
+{
+  "locality": {
+    "name": "Green Park",
+    "population": 5000,
+    "area": "1 km²",
+    "coordinates": {
+      "lat": 28.5562,
+      "lng": 77.2065
+    }
+  },
+  "stakeholders": [
+    {
+      "id": "citizen",
+      "role": "Citizen",
+      "name": "Rahul",
+      "matchReason": "Community reporter providing first-hand evidence"
+    },
+    {
+      "id": "municipality",
+      "role": "Municipality",
+      "name": "Green Park Municipality",
+      "matchReason": "Jurisdictional authority for this ward"
+    },
+    {
+      "id": "ngo",
+      "role": "NGO",
+      "name": "CleanCity NGO",
+      "matchReason": "Active in Green Park, specializes in waste management"
+    },
+    {
+      "id": "volunteers",
+      "role": "Volunteers",
+      "name": "Green Park Youth Volunteers",
+      "matchReason": "12 active members, covers the school zone area"
+    },
+    {
+      "id": "rwa",
+      "role": "RWA",
+      "name": "Green Park Residents Welfare Association",
+      "matchReason": "Represents residents directly affected in this locality"
+    }
+  ],
+  "issues": [
+    {
+      "id": "issue-1",
+      "title": "Garbage accumulation near Green Park Government School",
+      "description": "Uncollected municipal solid waste accumulation blocking the sidewalk and entrance gate of Green Park Government School. Poses sanitation and health risk to students.",
+      "location": "Green Park Ward 4, Near School Gate 2",
+      "locality": "Green Park",
+      "reporter": "Rahul (Citizen)",
+      "reportedAt": "2026-08-08T08:30:00Z",
+      "status": "Pending Municipality Review",
+      "beforePhoto": "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800&q=80",
+      "afterPhoto": "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=800&q=80",
+      "aiAnalysis": {
+        "category": "Garbage Accumulation",
+        "priority": "High",
+        "reason": "Located near Government School affecting ~800 children daily and blocking primary public walkway",
+        "estimatedResolution": "6 Hours"
+      },
+      "coordinationResult": {
+        "primary": {
+          "role": "Municipality",
+          "name": "Green Park Municipality",
+          "matchReason": "Jurisdictional authority for this ward"
+        },
+        "support": [
+          {
+            "role": "NGO",
+            "name": "CleanCity NGO",
+            "matchReason": "Active in Green Park, specializes in waste management"
+          },
+          {
+            "role": "Volunteers",
+            "name": "Green Park Youth Volunteers",
+            "matchReason": "12 active members, covers the school zone area"
+          },
+          {
+            "role": "RWA",
+            "name": "Green Park Residents Welfare Association",
+            "matchReason": "Represents residents directly affected in this locality"
+          }
+        ]
+      },
+      "stakeholderStatus": {
+        "municipality": "Pending Review",
+        "ngo": "Waiting for Municipality Acceptance",
+        "volunteers": "Waiting for Municipality Acceptance",
+        "rwa": "Waiting for Municipality Acceptance"
+      },
+      "notes": {
+        "municipality": "",
+        "ngo": "",
+        "volunteers": "",
+        "rwa": ""
+      },
+      "timeline": [
+        {
+          "id": "t-1",
+          "title": "Report Submitted",
+          "actor": "Rahul (Citizen)",
+          "timestamp": "2026-08-08T08:30:00Z",
+          "details": "Citizen reported garbage pile near Government School with photo evidence.",
+          "type": "report"
+        },
+        {
+          "id": "t-2",
+          "title": "AI Analysis Completed",
+          "actor": "Civic Nexus AI",
+          "timestamp": "2026-08-08T08:31:00Z",
+          "details": "Classified as Garbage Accumulation with High Urgency (School Zone).",
+          "type": "ai"
+        }
+      ]
+    },
+    {
+      "id": "issue-1786140894441",
+      "title": "Garbage accumulation near Green Park Government School",
+      "description": "Uncollected municipal solid waste accumulation blocking the sidewalk and entrance gate of Green Park Government School. Poses sanitation and health risk to students.",
+      "location": "Green Park Ward 4, Near School Gate 2",
+      "locality": "Green Park",
+      "reporter": "Rahul (Citizen)",
+      "reportedAt": "2026-08-07T22:14:54.441Z",
+      "status": "Pending Municipality Review",
+      "beforePhoto": "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=800&q=80",
+      "afterPhoto": "https://images.unsplash.com/photo-1584467735871-8e85353a8413?auto=format&fit=crop&w=800&q=80",
+      "aiAnalysis": {
+        "category": "Garbage Accumulation",
+        "priority": "High",
+        "reason": "Located near Green Park Government School entrance, posing sanitation hazards to ~800 daily students and blocking walkway.",
+        "estimatedResolution": "6 Hours"
+      },
+      "coordinationResult": null,
+      "stakeholderStatus": {
+        "municipality": "Pending Review",
+        "ngo": "Waiting for Municipality Acceptance",
+        "volunteers": "Waiting for Municipality Acceptance",
+        "rwa": "Waiting for Municipality Acceptance"
+      },
+      "timeline": [
+        {
+          "id": "t-1786140894442",
+          "title": "Report Submitted",
+          "actor": "Rahul (Citizen)",
+          "timestamp": "2026-08-07T22:14:54.442Z",
+          "details": "Reported issue: Garbage accumulation near Green Park Government School",
+          "type": "report"
+        }
+      ]
+    }
+  ],
+  "communityStats": {
+    "totalIssues": 142,
+    "resolvedIssues": 118,
+    "pendingIssues": 24,
+    "avgResolutionTime": "5.2h",
+    "topIssue": "Garbage"
+  }
+}
