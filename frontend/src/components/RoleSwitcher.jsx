@@ -1,59 +1,82 @@
-import React from 'react';
-import { useApp } from '../context/AppContext';
-import { UserCheck, Building2, HeartHandshake, Users, Home } from 'lucide-react';
+import { useState } from "react";
+import { useApp } from "../context/AppContext";
+import { ChevronDown, User, Building2, Heart, Users, Home } from "lucide-react";
 
 const ROLES = [
-  { id: 'Citizen', label: 'Citizen', icon: UserCheck, color: '#3b82f6', bg: '#eff6ff' },
-  { id: 'Municipality', label: 'Municipality', icon: Building2, color: '#4f46e5', bg: '#eef2ff' },
-  { id: 'NGO', label: 'CleanCity NGO', icon: HeartHandshake, color: '#059669', bg: '#ecfdf5' },
-  { id: 'Volunteers', label: 'Youth Volunteers', icon: Users, color: '#d97706', bg: '#fffbeb' },
-  { id: 'RWA', label: 'Green Park RWA', icon: Home, color: '#7c3aed', bg: '#f5f3ff' }
+  { name: "Citizen", icon: User },
+  { name: "Municipality", icon: Building2 },
+  { name: "CleanCity NGO", icon: Heart },
+  { name: "Youth Volunteers", icon: Users },
+  { name: "Green Park RWA", icon: Home },
 ];
 
-export function RoleSwitcher() {
+export default function RoleSwitcher() {
   const { activeRole, setActiveRole } = useApp();
+  const [open, setOpen] = useState(false);
+
+  const current = ROLES.find((r) => r.name === activeRole) || ROLES[0];
+  const CurrentIcon = current.icon;
 
   return (
-    <div style={{
-      display: 'inline-flex',
-      alignItems: 'center',
-      gap: '0.4rem',
-      background: 'var(--bg-subtle)',
-      padding: '0.25rem',
-      borderRadius: 'var(--radius-md)',
-      border: '1px solid var(--border-subtle)'
-    }}>
-      <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', paddingLeft: '0.5rem', paddingRight: '0.25rem' }}>
-        Role:
-      </span>
-      {ROLES.map(role => {
-        const Icon = role.icon;
-        const isActive = activeRole === role.id;
-        return (
-          <button
-            key={role.id}
-            onClick={() => setActiveRole(role.id)}
-            title={`Switch view to ${role.label}`}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-              padding: '0.35rem 0.65rem',
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '0.8rem',
-              fontWeight: isActive ? 600 : 500,
-              border: isActive ? `1px solid ${role.color}` : '1px solid transparent',
-              background: isActive ? role.bg : 'transparent',
-              color: isActive ? role.color : 'var(--text-secondary)',
-              cursor: 'pointer',
-              transition: 'all 0.15s ease'
-            }}
-          >
-            <Icon size={14} color={isActive ? role.color : 'var(--text-muted)'} />
-            <span>{role.label}</span>
-          </button>
-        );
-      })}
+    <div style={{ position: "relative" }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "6px",
+          padding: "6px 12px",
+          borderRadius: "8px",
+          border: "1px solid #e2e8f0",
+          background: "#fff",
+          cursor: "pointer",
+          fontWeight: 600,
+        }}
+      >
+        <CurrentIcon size={16} />
+        {current.name}
+        <ChevronDown size={14} />
+      </button>
+
+      {open && (
+        <div
+          style={{
+            position: "absolute",
+            top: "110%",
+            right: 0,
+            background: "#fff",
+            border: "1px solid #e2e8f0",
+            borderRadius: "8px",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+            minWidth: "180px",
+            zIndex: 50,
+          }}
+        >
+          {ROLES.map((role) => {
+            const Icon = role.icon;
+            return (
+              <div
+                key={role.name}
+                onClick={() => {
+                  setActiveRole(role.name);
+                  setOpen(false);
+                }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "10px 12px",
+                  cursor: "pointer",
+                  background: role.name === activeRole ? "#eef2ff" : "transparent",
+                }}
+              >
+                <Icon size={16} />
+                {role.name}
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
