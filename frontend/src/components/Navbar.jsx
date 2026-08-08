@@ -25,21 +25,21 @@ export function Navbar() {
     { path: "/analytics", label: "Analytics", icon: BarChart3 },
     { path: "/about", label: "About", icon: Info },
   ],
-  "CleanCity NGO": [
+  "NGO": [
     { path: "/", label: "Home", icon: ShieldAlert },
     { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { path: "/overview", label: "Overview", icon: FileText },
     { path: "/analytics", label: "Analytics", icon: BarChart3 },
     { path: "/about", label: "About", icon: Info },
   ],
- "Youth Volunteers": [
+ "Volunteers": [
     { path: "/", label: "Home", icon: ShieldAlert },
     { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { path: "/overview", label: "Overview", icon: FileText },
     { path: "/analytics", label: "Analytics", icon: BarChart3 },
     { path: "/about", label: "About", icon: Info },
   ],
-  "Green Park RWA": [
+  "RWA": [
     { path: "/", label: "Home", icon: ShieldAlert },
     { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { path: "/overview", label: "Overview", icon: FileText },
