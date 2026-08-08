@@ -1,24 +1,57 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { RoleSwitcher } from './RoleSwitcher';
+import { useApp } from '../context/AppContext';
 import { ShieldAlert, Network, LayoutDashboard, FileText, BarChart3, Info, PlusCircle, Menu, X } from 'lucide-react';
 
 export function Navbar() {
   const location = useLocation();
+  const { activeRole } = useApp();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = [
-    { path: '/', label: 'Home', icon: ShieldAlert },
-    { path: '/report', label: 'Report Issue', icon: PlusCircle },
-    { path: '/coordination', label: 'Coordination Engine', icon: Network, highlight: true },
-    { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { path: '/overview', label: 'Overview', icon: FileText },
-    { path: '/analytics', label: 'Analytics', icon: BarChart3 },
-    { path: '/about', label: 'About', icon: Info }
-  ];
+  const NAV_LINKS_BY_ROLE = {
+  "Citizen": [
+    { path: "/", label: "Home", icon: ShieldAlert },
+    { path: "/report", label: "Report Issue", icon: PlusCircle },
+    { path: "/overview", label: "Overview", icon: FileText },
+    { path: "/analytics", label: "Analytics", icon: BarChart3 },
+    { path: "/about", label: "About", icon: Info },
+  ],
+  "Municipality": [
+    { path: "/", label: "Home", icon: ShieldAlert },
+    { path: "/coordination", label: "Coordination Engine", icon: Network },
+    { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { path: "/overview", label: "Overview", icon: FileText },
+    { path: "/analytics", label: "Analytics", icon: BarChart3 },
+    { path: "/about", label: "About", icon: Info },
+  ],
+  "CleanCity NGO": [
+    { path: "/", label: "Home", icon: ShieldAlert },
+    { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { path: "/overview", label: "Overview", icon: FileText },
+    { path: "/analytics", label: "Analytics", icon: BarChart3 },
+    { path: "/about", label: "About", icon: Info },
+  ],
+ "Youth Volunteers": [
+    { path: "/", label: "Home", icon: ShieldAlert },
+    { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { path: "/overview", label: "Overview", icon: FileText },
+    { path: "/analytics", label: "Analytics", icon: BarChart3 },
+    { path: "/about", label: "About", icon: Info },
+  ],
+  "Green Park RWA": [
+    { path: "/", label: "Home", icon: ShieldAlert },
+    { path: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { path: "/overview", label: "Overview", icon: FileText },
+    { path: "/analytics", label: "Analytics", icon: BarChart3 },
+    { path: "/about", label: "About", icon: Info },
+  ],
+  };
+  const navLinks =
+  NAV_LINKS_BY_ROLE[activeRole] || NAV_LINKS_BY_ROLE.Citizen;
 
   const isActive = (path) => location.pathname === path;
-
+  
   return (
     <header className="glass-nav">
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '70px' }}>
