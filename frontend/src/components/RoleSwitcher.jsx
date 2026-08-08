@@ -3,11 +3,31 @@ import { useApp } from "../context/AppContext";
 import { ChevronDown, User, Building2, Heart, Users, Home } from "lucide-react";
 
 const ROLES = [
-  { name: "Citizen", icon: User },
-  { name: "Municipality", icon: Building2 },
-  { name: "CleanCity NGO", icon: Heart },
-  { name: "Youth Volunteers", icon: Users },
-  { name: "Green Park RWA", icon: Home },
+  {
+    id: "Citizen",
+    label: "Citizen",
+    icon: User,
+  },
+  {
+    id: "Municipality",
+    label: "Municipality",
+    icon: Building2,
+  },
+  {
+    id: "NGO",
+    label: "CleanCity NGO",
+    icon: Heart,
+  },
+  {
+    id: "Volunteers",
+    label: "Youth Volunteers",
+    icon: Users,
+  },
+  {
+    id: "RWA",
+    label: "Green Park RWA",
+    icon: Home,
+  },
 ];
 
 export default function RoleSwitcher() {
