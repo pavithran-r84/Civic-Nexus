@@ -3,38 +3,17 @@ import { useApp } from "../context/AppContext";
 import { ChevronDown, User, Building2, Heart, Users, Home } from "lucide-react";
 
 const ROLES = [
-  {
-    id: "Citizen",
-    label: "Citizen",
-    icon: User,
-  },
-  {
-    id: "Municipality",
-    label: "Municipality",
-    icon: Building2,
-  },
-  {
-    id: "NGO",
-    label: "CleanCity NGO",
-    icon: Heart,
-  },
-  {
-    id: "Volunteers",
-    label: "Youth Volunteers",
-    icon: Users,
-  },
-  {
-    id: "RWA",
-    label: "Green Park RWA",
-    icon: Home,
-  },
+  { id: "Citizen", label: "Citizen", icon: User },
+  { id: "Municipality", label: "Municipality", icon: Building2 },
+  { id: "NGO", label: "CleanCity NGO", icon: Heart },
+  { id: "Volunteers", label: "Youth Volunteers", icon: Users },
+  { id: "RWA", label: "Green Park RWA", icon: Home },
 ];
 
 export default function RoleSwitcher() {
   const { activeRole, setActiveRole } = useApp();
   const [open, setOpen] = useState(false);
-
-  const current = ROLES.find((r) => r.name === activeRole) || ROLES[0];
+  const current = ROLES.find((r) => r.id === activeRole) || ROLES[0];
   const CurrentIcon = current.icon;
 
   return (
@@ -54,7 +33,7 @@ export default function RoleSwitcher() {
         }}
       >
         <CurrentIcon size={16} />
-        {current.name}
+        {current.label}
         <ChevronDown size={14} />
       </button>
 
@@ -76,9 +55,9 @@ export default function RoleSwitcher() {
             const Icon = role.icon;
             return (
               <div
-                key={role.name}
+                key={role.id}
                 onClick={() => {
-                  setActiveRole(role.name);
+                  setActiveRole(role.id);
                   setOpen(false);
                 }}
                 style={{
@@ -87,11 +66,11 @@ export default function RoleSwitcher() {
                   gap: "8px",
                   padding: "10px 12px",
                   cursor: "pointer",
-                  background: role.name === activeRole ? "#eef2ff" : "transparent",
+                  background: role.id === activeRole ? "#eef2ff" : "transparent",
                 }}
               >
                 <Icon size={16} />
-                {role.name}
+                {role.label}
               </div>
             );
           })}
